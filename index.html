@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>紫宁太阁 Zynique Sanctum | AURA CULTURAL HERITAGE</title>
+    <style>
+        /* 基础重置 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', "Microsoft YaHei", "PingFang SC", sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: #fbf9f6; /* 温暖的大地色背景 */
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* 颜色变量 */
+        :root {
+            --primary-color: #8B5A2B; /* 典雅大地色/赭色 */
+            --secondary-color: #3B2F2F; /* 沉稳深褐 */
+            --text-light: #fbf9f6;
+            --accent-color: #C19A6B; 
+        }
+
+        /* 导航栏 */
+        nav {
+            background-color: var(--secondary-color);
+            color: var(--text-light);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-size: 1rem;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-color);
+        }
+
+        /* Hero 横幅区 */
+        .hero {
+            background: linear-gradient(rgba(59, 47, 47, 0.8), rgba(59, 47, 47, 0.8)), url('https://images.unsplash.com/photo-1590457635954-463870624bc6?auto=format&fit=crop&w=1600&q=80') center/cover;
+            height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: var(--text-light);
+            padding: 0 20px;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 10px;
+            letter-spacing: 3px;
+        }
+
+        .hero h2 {
+            font-size: 1.8rem;
+            font-weight: 400;
+            margin-bottom: 30px;
+            color: var(--accent-color);
+        }
+
+        .hero .subtitle {
+            font-size: 1.2rem;
+            letter-spacing: 5px;
+            margin-bottom: 10px;
+        }
+        
+        .hero .slogan {
+            font-size: 1.2rem;
+            font-style: italic;
+            opacity: 0.9;
+        }
+
+        /* 通用区块样式 */
+        section {
+            padding: 80px 5%;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.2rem;
+            color: var(--secondary-color);
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background-color: var(--primary-color);
+            margin: 15px auto 0;
+        }
+
+        /* 关于我们 */
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            font-size: 1.1rem;
+            color: #555;
+            line-height: 2;
+        }
+
+        /* 产品与服务 */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .service-card {
+            background: #fff;
+            padding: 40px 30px;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            border-top: 4px solid var(--primary-color);
+            transition: transform 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .service-card h3 {
+            color: var(--secondary-color);
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+        }
+
+        .service-card p {
+            color: #666;
+            font-size: 0.95rem;
+        }
+
+        /* 联系我们 */
+        .contact-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 50px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .contact-info, .contact-form {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .contact-info h3 {
+            font-size: 1.5rem;
+            color: var(--secondary-color);
+            margin-bottom: 20px;
+        }
+
+        .contact-info p {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            color: #555;
+        }
+
+        .contact-info a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .whatsapp-btn {
+            display: inline-block;
+            background-color: #25D366; /* WhatsApp绿 */
+            color: white !important;
+            padding: 10px 20px;
+            border-radius: 5px;
+            margin-top: 10px;
+            transition: background 0.3s;
+        }
+
+        .whatsapp-btn:hover {
+            background-color: #128C7E;
+        }
+
+        .contact-form form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .contact-form input, .contact-form textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 1rem;
+            background-color: #fff;
+        }
+
+        .contact-form textarea {
+            resize: vertical;
+            height: 120px;
+        }
+
+        .contact-form button {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 15px;
+            font-size: 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .contact-form button:hover {
+            background-color: var(--secondary-color);
+        }
+
+        /* 页脚 */
+        footer {
+            background-color: var(--secondary-color);
+            color: #ccc;
+            text-align: center;
+            padding: 30px 20px;
+            font-size: 0.9rem;
+        }
+
+        footer p {
+            margin-bottom: 8px;
+        }
+
+        footer .company-name {
+            color: var(--text-light);
+            font-size: 1.1rem;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none; /* 移动端隐藏导航，如需可扩展汉堡菜单 */
+            }
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            .hero h2 {
+                font-size: 1.5rem;
+            }
+            .contact-container {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 导航栏 -->
+    <nav>
+        <div class="logo">AURA CULTURAL HERITAGE</div>
+        <ul class="nav-links">
+            <li><a href="#home">首页</a></li>
+            <li><a href="#about">关于我们</a></li>
+            <li><a href="#services">产品与服务</a></li>
+            <li><a href="#contact">联系我们</a></li>
+        </ul>
+    </nav>
+
+    <!-- 首页横幅区 (Hero) -->
+    <header id="home" class="hero">
+        <div class="subtitle">AURA CULTURAL HERITAGE</div>
+        <h1>紫宁太阁</h1>
+        <h2>Zynique Sanctum</h2>
+        <p class="slogan">传承茅山文化 · 用心为您服务</p>
+        <p class="slogan" style="margin-top: 5px;">—— 传承文化，点亮生活 ——</p>
+    </header>
+
+    <!-- 关于我们 -->
+    <section id="about">
+        <h2 class="section-title">关于我们</h2>
+        <div class="about-content">
+            <p><strong>AURA CULTURAL HERITAGE（紫宁太阁）</strong> 致力于传承与弘扬传统文化精髓。我们专注于为您甄选高品质的佛教文化产品、风水摆件、天然水晶、灵性饰品及精美纪念品。在这里，我们不仅仅是零售商，更是您通往心灵宁静与生活和谐的桥梁。我们秉持“用心为您服务”的理念，结合深厚的文化底蕴，为您提供专业的指导与建议，帮助您调理磁场、提升能量、点亮美好生活。</p>
+        </div>
+    </section>
+
+    <!-- 产品与服务 -->
+    <section id="services" style="background-color: #f4f0e6;">
+        <h2 class="section-title">产品与服务</h2>
+        <div class="services-grid">
+            <!-- 核心业务 1 -->
+            <div class="service-card">
+                <h3>佛教与文化产品</h3>
+                <p>为您提供种类丰富的佛教文化用品，包括供奉圣物、法器及传统文化纪念品，助您在喧嚣中寻得内心的一方净土。</p>
+            </div>
+            <!-- 核心业务 2 -->
+            <div class="service-card">
+                <h3>风水摆件</h3>
+                <p>精选各类开运、招财、化煞的风水摆设与吉祥物。通过专业的风水理念，为您改善居家与办公气场，迎来好运与福气。</p>
+            </div>
+            <!-- 核心业务 3 -->
+            <div class="service-card">
+                <h3>水晶与灵性饰品</h3>
+                <p>提供天然高品质水晶、灵摆及各类能量饰品。每一件饰品都蕴含大自然的纯粹能量，为您守护身心，提升个人气场。</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 联系我们 -->
+    <section id="contact">
+        <h2 class="section-title">联系我们</h2>
+        <div class="contact-container">
+            <!-- 联系信息 -->
+            <div class="contact-info">
+                <h3>AURA CULTURAL HERITAGE</h3>
+                <p><strong>公司注册号：</strong>SSM 202603224783 (003882667-P)</p>
+                <p><strong>完整地址：</strong><br>37, JLN TIAN HAN LABIS,<br>85300 LABIS,JOHOR<br>SEGAMAT,JOHOR 85300<br>马来西亚</p>
+                <p><strong>企业邮箱：</strong>info@auraculturalheritage.com</p>
+                <p><strong>联系电话（客服）：</strong>+6011-56987564</p>
+                <a href="https://wa.me/message/326BXKNY6NEOK1" target="_blank" class="whatsapp-btn">
+                    💬 WhatsApp Business 联系我们
+                </a>
+            </div>
+
+            <!-- 联系表单 -->
+            <div class="contact-form">
+                <form action="#" method="POST" onsubmit="event.preventDefault(); alert('感谢您的留言，我们会尽快与您联系！(此为演示表单)');">
+                    <input type="text" name="name" placeholder="您的姓名" required>
+                    <input type="tel" name="phone" placeholder="联系电话">
+                    <input type="email" name="email" placeholder="您的邮箱" required>
+                    <textarea name="message" placeholder="请输入您的留言内容..." required></textarea>
+                    <button type="submit">发送信息</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer>
+        <p class="company-name">AURA CULTURAL HERITAGE</p>
+        <p>SSM: 202603224783 (003882667-P)</p>
+        <p>37, JLN TIAN HAN, JOHOR 85300, Malaysia</p>
+        <p style="margin-top: 15px; font-size: 0.8rem;">&copy; 2024 AURA CULTURAL HERITAGE. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
